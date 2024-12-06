@@ -9,8 +9,9 @@ export class ProjectItem {
         console.log(this.name);
         console.log(`Type: ${this.type}`);
         console.table(this.items);
-        // for (let i = 0; i < this.items.length; i ++){
-        //     this.items[i].printItem();
-        // }
+    }
+
+    deleteToDo(index){
+        this.items.splice(index, 1);
     }
 }

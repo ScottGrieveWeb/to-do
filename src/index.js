@@ -14,3 +14,5 @@ webDevProject.items.push(testItem0);
 webDevProject.items.push(testItem1);
 webDevProject.items.push(testItem2);
 webDevProject.printProject();
+webDevProject.deleteToDo(1);
+webDevProject.printProject();
