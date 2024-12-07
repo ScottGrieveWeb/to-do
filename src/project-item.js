@@ -1,13 +1,11 @@
 export class ProjectItem {
-    constructor(name, type) {
+    constructor(name) {
         this.name = name;
-        this.type = type;
         this.items = [];
     }
 
     printProject(){
         console.log(this.name);
-        console.log(`Type: ${this.type}`);
         console.table(this.items);
     }
 
