@@ -1,6 +1,7 @@
 import "./style.css";
 import { ToDoItem } from "./to-do-item";
 import { ProjectItem } from "./project-item";
+import { newToDo } from "./create-to-do";
 
 
 let defaultProject = new ProjectItem("Default");
@@ -23,4 +24,4 @@ defaultProject.items.push(noProjectItem);
 webDevProject.printProject();
 defaultProject.printProject();
 
-noProjectItem.printItem();
+
