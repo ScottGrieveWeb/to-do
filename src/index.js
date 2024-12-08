@@ -2,7 +2,7 @@ import "./pico.min.css";
 import { ToDoItem } from "./to-do-item";
 import { ProjectItem } from "./project-item";
 import { newToDo } from "./create-to-do";
-import { domItems } from "./dom";
+import { domItems, renderProjectItems } from "./dom";
 
 
 let defaultProject = new ProjectItem("Default");
@@ -24,7 +24,7 @@ defaultProject.items.push(noProjectItem);
 
 webDevProject.printProject();
 defaultProject.printProject();
-
+renderProjectItems(webDevProject);
 
 
 domItems.button.addEventListener("click", () => {
@@ -33,4 +33,5 @@ domItems.button.addEventListener("click", () => {
     defaultProject.items.push(userToDo);
     defaultProject.printProject();
 });
+
 
