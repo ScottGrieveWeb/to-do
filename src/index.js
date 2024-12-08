@@ -2,6 +2,7 @@ import "./style.css";
 import { ToDoItem } from "./to-do-item";
 import { ProjectItem } from "./project-item";
 import { newToDo } from "./create-to-do";
+import { domItems } from "./dom";
 
 
 let defaultProject = new ProjectItem("Default");
@@ -24,4 +25,12 @@ defaultProject.items.push(noProjectItem);
 webDevProject.printProject();
 defaultProject.printProject();
 
+
+
+domItems.button.addEventListener("click", () => {
+    let userInput = newToDo();
+    let userToDo = new ToDoItem(userInput.title, userInput.description, userInput.dueDate, userInput.priority, userInput.project);
+    defaultProject.items.push(userToDo);
+    defaultProject.printProject();
+});
 
