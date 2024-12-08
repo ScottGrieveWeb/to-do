@@ -1,4 +1,4 @@
-import "./style.css";
+import "./pico.min.css";
 import { ToDoItem } from "./to-do-item";
 import { ProjectItem } from "./project-item";
 import { newToDo } from "./create-to-do";
