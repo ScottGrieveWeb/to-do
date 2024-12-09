@@ -3,6 +3,7 @@ import { ToDoItem } from "./to-do-item";
 import { ProjectItem } from "./project-item";
 import { newToDo } from "./create-to-do";
 import { domItems, renderProjectItems } from "./dom";
+import { removeElementsByClass } from "./remove-element";
 
 
 let defaultProject = new ProjectItem("Default");
@@ -32,6 +33,9 @@ domItems.button.addEventListener("click", () => {
     let userToDo = new ToDoItem(userInput.title, userInput.description, userInput.dueDate, userInput.priority, userInput.project);
     defaultProject.items.push(userToDo);
     defaultProject.printProject();
+    removeElementsByClass("to-do-item");
+    renderProjectItems(webDevProject);
+    renderProjectItems(defaultProject);
 });
 
 

@@ -7,6 +7,7 @@ export  let domItems = {
 export  const renderProjectItems = function(project){
     for (let i = 0; i < project.items.length; i++){
         let toDoAccordion = document.createElement("details");
+        toDoAccordion.classList.add("to-do-item");
 
         let summary = document.createElement("summary");
         let summaryText = document.createTextNode(`${project.items[i].title}`);
