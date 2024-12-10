@@ -2,11 +2,12 @@ import { removeElementsByClass } from "./remove-element";
 
 export  let domItems = {
     toDoButton: document.getElementById("to-do-btn"),
+    // TODO Add functionality to project button
     projectButton: document.getElementById("project-btn"),
     toDoDiv: document.getElementById("to-do-list")
 }
 
-
+/// TODO Rework rendering functionality to use nested accordions
 export  const renderProjectItems = function(project){
     for (let i = 0; i < project.items.length; i++){
         let toDoAccordion = document.createElement("details");
@@ -34,7 +35,8 @@ export  const renderProjectItems = function(project){
         toDoAccordion.appendChild(description);
         toDoAccordion.appendChild(deleteBttn);
 
-        domItems.toDoDiv.appendChild(toDoAccordion);
+        // domItems.toDoDiv.appendChild(toDoAccordion);
+        return toDoAccordion;
     }
 }
 
@@ -48,6 +50,13 @@ export const renderProjectList = function(projectList) {
         summary.appendChild(summaryText);
 
         projectAccordion.appendChild(summary);
+
+        let projectToDoList = renderProjectItems(projectList[i]);
+        console.log(projectToDoList);
+        let projectToDoListDiv = document.createElement("div");
+        projectToDoListDiv.innerHTML = projectToDoList
+        
+        projectAccordion.appendChild(projectToDoListDiv);
 
         domItems.toDoDiv.appendChild(projectAccordion);
     }

@@ -15,7 +15,7 @@ let webDevProject = new ProjectItem("Web Development Journey");
 projectList.push(defaultProject);
 projectList.push(webDevProject);
 
-renderProjectList(projectList);
+
 //test cases
 let testItem0 = new ToDoItem("Make a To Do web app", "For my TOP progress, I need to create a To Do web app", "15th Dec", "1", "Default");
 let testItem1 = new ToDoItem("Walk more", "I want to get my steps up", "31st Dec", "2", "Default");
@@ -31,7 +31,7 @@ defaultProject.items.push(noProjectItem);
 
 defaultProject.printProject();
 // renderProjectItems(defaultProject);
-
+renderProjectList(projectList);
 
 domItems.toDoButton.addEventListener("click", () => {
     let userInput = newToDo();
