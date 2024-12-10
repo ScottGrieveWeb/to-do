@@ -1,7 +1,8 @@
 import { removeElementsByClass } from "./remove-element";
 
 export  let domItems = {
-    button: document.getElementById("test-btn"),
+    toDoButton: document.getElementById("to-do-btn"),
+    projectButton: document.getElementById("project-btn"),
     toDoDiv: document.getElementById("to-do-list")
 }
 
@@ -34,6 +35,21 @@ export  const renderProjectItems = function(project){
         toDoAccordion.appendChild(deleteBttn);
 
         domItems.toDoDiv.appendChild(toDoAccordion);
+    }
+}
+
+export const renderProjectList = function(projectList) {
+    for (let i = 0; i < projectList.length; i++){
+        let projectAccordion = document.createElement("details");
+        projectAccordion.classList.add("project-list");
+
+        let summary = document.createElement("summary");
+        let summaryText = document.createTextNode(`${projectList[i].name}`);
+        summary.appendChild(summaryText);
+
+        projectAccordion.appendChild(summary);
+
+        domItems.toDoDiv.appendChild(projectAccordion);
     }
 }
 
