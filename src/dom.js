@@ -1,6 +1,8 @@
 import { removeElementsByClass } from "./remove-element";
 import { projectList } from "./index";
 import { ProjectItem } from "./project-item";
+import { newToDo } from "./create-to-do";
+import { ToDoItem } from "./to-do-item";
 
 export  let domItems = {
     toDoButton: document.getElementById("to-do-btn"),
@@ -30,7 +32,6 @@ export  const renderProjectItems = function(project, id){
         deleteBttn.addEventListener('click' , () => {
             removeToDo(toDoAccordion.dataset.index, project);
          }); 
-
         
         toDoAccordion.appendChild(summary);
         toDoAccordion.appendChild(description);
@@ -55,8 +56,26 @@ export const renderProjectList = function(projectList) {
 
         domItems.toDoDiv.appendChild(projectAccordion);
         renderProjectItems(projectList[i], `project${i}`);
+
+        const addBttn = document.createElement("button");
+        const addBttnText = document.createTextNode("+");
+        addBttn.appendChild(addBttnText);
+        addBttn.classList.add("add-btn");
+        addBttn.addEventListener('click', () => {
+            let userInput = newToDo();
+            let newToDoItem = new ToDoItem(userInput.title, userInput.description, userInput.dueDate, userInput.priority);
+            
+            projectList[i].items.push(newToDoItem);
+            
+            removeElementsByClass("project-list");
+            renderProjectList(projectList);
+         });
+
+         projectAccordion.appendChild(addBttn);
     }
 }
+
+
 
 function removeToDo(index, project){
     project.items.splice(index, 1);

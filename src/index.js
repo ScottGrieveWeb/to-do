@@ -2,7 +2,6 @@ import "./styles/pico.min.css";
 import "./styles/style.css"
 import { ToDoItem } from "./to-do-item";
 import { ProjectItem } from "./project-item";
-import { newToDo } from "./create-to-do";
 import { domItems, renderProjectItems, renderProjectList } from "./dom";
 import { removeElementsByClass } from "./remove-element";
 
@@ -31,11 +30,3 @@ webDevProject.items.push(noProjectItem);
 
 renderProjectList(projectList);
 
-domItems.toDoButton.addEventListener("click", () => {
-    let userInput = newToDo();
-    let userToDo = new ToDoItem(userInput.title, userInput.description, userInput.dueDate, userInput.priority, userInput.project);
-    defaultProject.items.push(userToDo);
-    defaultProject.printProject();
-    removeElementsByClass("to-do-item");
-    renderProjectItems(defaultProject);
-});
