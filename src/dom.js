@@ -1,5 +1,6 @@
 import { removeElementsByClass } from "./remove-element";
 import { projectList } from "./index";
+import { ProjectItem } from "./project-item";
 
 export  let domItems = {
     toDoButton: document.getElementById("to-do-btn"),
@@ -63,3 +64,13 @@ function removeToDo(index, project){
     removeElementsByClass("project-list");
     renderProjectList(projectList);
 }
+
+domItems.projectButton.addEventListener("click", () => {
+    let userInput = prompt("What is the name of your new project?");
+    let newProject = new ProjectItem(userInput);
+
+    projectList.push(newProject);
+
+    removeElementsByClass("project-list");
+    renderProjectList(projectList);
+});
