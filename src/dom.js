@@ -7,8 +7,7 @@ export  let domItems = {
     toDoDiv: document.getElementById("to-do-list")
 }
 
-/// TODO Rework rendering functionality to use nested accordions
-export  const renderProjectItems = function(project){
+export  const renderProjectItems = function(project, id){
     for (let i = 0; i < project.items.length; i++){
         let toDoAccordion = document.createElement("details");
         toDoAccordion.classList.add("to-do-item");
@@ -35,8 +34,8 @@ export  const renderProjectItems = function(project){
         toDoAccordion.appendChild(description);
         toDoAccordion.appendChild(deleteBttn);
 
-        // domItems.toDoDiv.appendChild(toDoAccordion);
-        return toDoAccordion;
+        let currentProjectDiv = document.getElementById(id);
+        currentProjectDiv.appendChild(toDoAccordion);
     }
 }
 
@@ -44,6 +43,7 @@ export const renderProjectList = function(projectList) {
     for (let i = 0; i < projectList.length; i++){
         let projectAccordion = document.createElement("details");
         projectAccordion.classList.add("project-list");
+        projectAccordion.setAttribute("id", `project${i}`);
 
         let summary = document.createElement("summary");
         let summaryText = document.createTextNode(`${projectList[i].name}`);
@@ -51,14 +51,8 @@ export const renderProjectList = function(projectList) {
 
         projectAccordion.appendChild(summary);
 
-        let projectToDoList = renderProjectItems(projectList[i]);
-        console.log(projectToDoList);
-        let projectToDoListDiv = document.createElement("div");
-        projectToDoListDiv.innerHTML = projectToDoList
-        
-        projectAccordion.appendChild(projectToDoListDiv);
-
         domItems.toDoDiv.appendChild(projectAccordion);
+        renderProjectItems(projectList[i], `project${i}`);
     }
 }
 
