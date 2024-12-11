@@ -6,7 +6,7 @@ import { domItems, renderProjectItems, renderProjectList } from "./dom";
 import { removeElementsByClass } from "./remove-element";
 
 // temporary projectlist variable, will rework to not be a global variable further down the line
-let projectList = [];
+export let projectList = [];
 
 
 let defaultProject = new ProjectItem("Default");

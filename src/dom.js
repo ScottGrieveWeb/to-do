@@ -1,4 +1,5 @@
 import { removeElementsByClass } from "./remove-element";
+import { projectList } from "./index";
 
 export  let domItems = {
     toDoButton: document.getElementById("to-do-btn"),
@@ -59,6 +60,6 @@ export const renderProjectList = function(projectList) {
 function removeToDo(index, project){
     project.items.splice(index, 1);
 
-    removeElementsByClass("to-do-item");
-    renderProjectItems(project);
+    removeElementsByClass("project-list");
+    renderProjectList(projectList);
 }
