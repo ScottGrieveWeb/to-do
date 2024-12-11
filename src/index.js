@@ -1,5 +1,5 @@
-import "./pico.min.css";
-import "./style.css"
+import "./styles/pico.min.css";
+import "./styles/style.css"
 import { ToDoItem } from "./to-do-item";
 import { ProjectItem } from "./project-item";
 import { newToDo } from "./create-to-do";
