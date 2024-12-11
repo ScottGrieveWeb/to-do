@@ -1,0 +1,17 @@
+body {
+    margin: 30px;
+}
+.project-list {
+    width: 300px;
+    height: auto;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.to-do-item {
+    width: auto;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
