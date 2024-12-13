@@ -45,6 +45,15 @@ export  const renderProjectItems = function(project, id){
         completedCheckBox.setAttribute('type', 'checkbox');
         completedCheckBox.setAttribute('name', `checkbox-${project.items[i].title}`);
         completedCheckBoxLabel.appendChild(completedCheckBox);
+        completedCheckBox.addEventListener('change',() => {
+            if (completedCheckBox.checked){
+                project.items[i].completeStatus = true;
+                console.log(project.items[i].completeStatus);
+            } else {
+                project.items[i].completeStatus = false;
+                console.log(project.items[i].completeStatus);
+            }
+        });
 
         const deleteBttn = document.createElement('button')
         const deleteTxt = document.createTextNode('delete');
