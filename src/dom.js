@@ -36,6 +36,15 @@ export  const renderProjectItems = function(project, id){
         let priorityText = document.createTextNode(`Priority: ${project.items[i].priority}`);
         priority.classList.add("todo-priority");
         priority.appendChild(priorityText);
+        const completedCheckBoxLabel = document.createElement('label');
+        completedCheckBoxLabel.setAttribute('for', `checkbox-${project.items[i].title}`);
+        const checkBoxLabelText = document.createTextNode("completed:");
+        completedCheckBoxLabel.appendChild(checkBoxLabelText);
+
+        const completedCheckBox = document.createElement('input');
+        completedCheckBox.setAttribute('type', 'checkbox');
+        completedCheckBox.setAttribute('name', `checkbox-${project.items[i].title}`);
+        completedCheckBoxLabel.appendChild(completedCheckBox);
 
         const deleteBttn = document.createElement('button')
         const deleteTxt = document.createTextNode('delete');
@@ -49,6 +58,7 @@ export  const renderProjectItems = function(project, id){
         toDoAccordion.appendChild(description);
         toDoAccordion.appendChild(due);
         toDoAccordion.appendChild(priority);
+        toDoAccordion.appendChild(completedCheckBoxLabel);
         toDoAccordion.appendChild(deleteBttn);
 
         let currentProjectDiv = document.getElementById(id);
