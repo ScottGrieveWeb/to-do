@@ -15,6 +15,7 @@ export  const renderProjectItems = function(project, id){
     for (let i = 0; i < project.items.length; i++){
         let toDoAccordion = document.createElement("details");
         toDoAccordion.classList.add("to-do-item");
+        toDoAccordion.classList.add(`priority${project.items[i].priority}`);
         toDoAccordion.dataset.index = i;
 
         let summary = document.createElement("summary");
@@ -96,6 +97,7 @@ function removeToDo(index, project){
     removeElementsByClass("project-list");
     renderProjectList(projectList);
 }
+
 
 domItems.projectButton.addEventListener("click", () => {
     let userInput = prompt("What is the name of your new project?");
