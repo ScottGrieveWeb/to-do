@@ -31,6 +31,11 @@ export  const renderProjectItems = function(project, id){
         due.classList.add("todo-due");
         due.appendChild(dueText);
 
+        let priority = document.createElement("p");
+        let priorityText = document.createTextNode(`Priority: ${project.items[i].priority}`);
+        priority.classList.add("todo-priority");
+        priority.appendChild(priorityText);
+
         const deleteBttn = document.createElement('button')
         const deleteTxt = document.createTextNode('delete');
         deleteBttn.appendChild(deleteTxt);
@@ -42,6 +47,7 @@ export  const renderProjectItems = function(project, id){
         toDoAccordion.appendChild(summary);
         toDoAccordion.appendChild(description);
         toDoAccordion.appendChild(due);
+        toDoAccordion.appendChild(priority);
         toDoAccordion.appendChild(deleteBttn);
 
         let currentProjectDiv = document.getElementById(id);
