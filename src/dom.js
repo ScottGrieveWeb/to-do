@@ -23,7 +23,13 @@ export  const renderProjectItems = function(project, id){
 
         let description = document.createElement("p");
         let descriptionText = document.createTextNode(`${project.items[i].description}`);
+        description.classList.add("todo-description");
         description.appendChild(descriptionText);
+
+        let due = document.createElement("p");
+        let dueText = document.createTextNode(`Due: ${project.items[i].dueDate}`);
+        due.classList.add("todo-due");
+        due.appendChild(dueText);
 
         const deleteBttn = document.createElement('button')
         const deleteTxt = document.createTextNode('delete');
@@ -35,6 +41,7 @@ export  const renderProjectItems = function(project, id){
         
         toDoAccordion.appendChild(summary);
         toDoAccordion.appendChild(description);
+        toDoAccordion.appendChild(due);
         toDoAccordion.appendChild(deleteBttn);
 
         let currentProjectDiv = document.getElementById(id);
