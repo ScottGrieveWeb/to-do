@@ -61,6 +61,7 @@ export const renderProjectList = function(projectList) {
         let projectAccordion = document.createElement("details");
         projectAccordion.classList.add("project-list");
         projectAccordion.setAttribute("id", `project${i}`);
+        projectAccordion.open = true;
 
         let summary = document.createElement("summary");
         let summaryText = document.createTextNode(`${projectList[i].name}`);
