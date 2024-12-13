@@ -5,6 +5,7 @@ export class ToDoItem {
         this.dueDate = dueDate;
         this.priority = priority;
         this.project = project;
+        this.completeStatus = false;
     }
 
     printItem(){
