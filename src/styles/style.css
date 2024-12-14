@@ -30,7 +30,7 @@ body {
 
 .completed-todo {
     background-color: transparent;
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 .completed-todo-title {
