@@ -2,6 +2,7 @@ export class ProjectItem {
     constructor(name) {
         this.name = name;
         this.items = [];
+        this.completed = [];
     }
 
     printProject(){
