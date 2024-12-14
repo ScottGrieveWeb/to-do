@@ -46,6 +46,7 @@ export  const renderProjectItems = function(project, id){
         completedCheckBox.setAttribute('type', 'checkbox');
         completedCheckBox.setAttribute('name', `checkbox-${project.items[i].title}`);
         completedCheckBoxLabel.appendChild(completedCheckBox);
+        
         completedCheckBox.addEventListener('change',() => {
             if (completedCheckBox.checked){
                 project.items[i].completeStatus = true;
@@ -57,6 +58,13 @@ export  const renderProjectItems = function(project, id){
                 summary.classList.remove("completed-todo-title");
             }
         });
+
+        if (project.items[i].completeStatus == true){
+            completedCheckBox.checked = true;
+            project.items[i].completeStatus == true;
+            toDoAccordion.classList.add("completed-todo");
+            summary.classList.add("completed-todo-title");
+        }
 
         const deleteBttn = document.createElement('button')
         const deleteTxt = document.createTextNode('delete');
