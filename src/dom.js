@@ -36,6 +36,7 @@ export  const renderProjectItems = function(project, id){
         let priorityText = document.createTextNode(`Priority: ${project.items[i].priority}`);
         priority.classList.add("todo-priority");
         priority.appendChild(priorityText);
+
         const completedCheckBoxLabel = document.createElement('label');
         completedCheckBoxLabel.setAttribute('for', `checkbox-${project.items[i].title}`);
         const checkBoxLabelText = document.createTextNode("completed:");
@@ -48,10 +49,10 @@ export  const renderProjectItems = function(project, id){
         completedCheckBox.addEventListener('change',() => {
             if (completedCheckBox.checked){
                 project.items[i].completeStatus = true;
-                console.log(project.items[i].completeStatus);
+                toDoAccordion.classList.add("completed-todo");
             } else {
                 project.items[i].completeStatus = false;
-                console.log(project.items[i].completeStatus);
+                toDoAccordion.classList.remove("completed-todo");
             }
         });
 
