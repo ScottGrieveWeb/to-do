@@ -27,3 +27,12 @@ body {
 .priority3 {
     background-color: rgba(45,201,55, 0.4);
 }
+
+.completed-todo {
+    background-color: transparent;
+    opacity: 0.5;
+}
+
+.completed-todo-title {
+    text-decoration: line-through;
+}

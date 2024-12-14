@@ -50,9 +50,11 @@ export  const renderProjectItems = function(project, id){
             if (completedCheckBox.checked){
                 project.items[i].completeStatus = true;
                 toDoAccordion.classList.add("completed-todo");
+                summary.classList.add("completed-todo-title");
             } else {
                 project.items[i].completeStatus = false;
                 toDoAccordion.classList.remove("completed-todo");
+                summary.classList.remove("completed-todo-title");
             }
         });
 
