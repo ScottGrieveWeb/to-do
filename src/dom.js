@@ -182,13 +182,17 @@ export const renderProjectList = function(projectList) {
         addBttn.addEventListener('click', () => {
             domItems.newToDoDialog.showModal();          
             domItems.confirmDialog.addEventListener("click", () => {
-                let newToDoItem = new ToDoItem(domItems.titleInput.value, domItems.descriptionInput.value, domItems.dueDateInput.value, domItems.priorityInput.value);
-                projectList[i].items.push(newToDoItem);
+                if (domItems.titleInput.value == "" || domItems.dueDateInput.value == ""){
+                    // do nothing
+                } else {
+                    let newToDoItem = new ToDoItem(domItems.titleInput.value, domItems.descriptionInput.value, domItems.dueDateInput.value, domItems.priorityInput.value);
+                    projectList[i].items.push(newToDoItem);
 
-                removeElementsByClass("project-list");
-                renderProjectList(projectList);
+                    removeElementsByClass("project-list");
+                    renderProjectList(projectList);
 
-                domItems.dialogForm.reset();
+                    domItems.dialogForm.reset();
+                }
             }, { once: true});
          });
          projectAccordion.appendChild(addBttn);
