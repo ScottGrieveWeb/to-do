@@ -15,7 +15,12 @@ export  let domItems = {
     titleInput: document.getElementById("toDoTitle"),
     descriptionInput: document.getElementById("toDoDescription"),
     dueDateInput: document.getElementById("toDoDate"),
-    priorityInput: document.getElementById("toDoPriority")
+    priorityInput: document.getElementById("toDoPriority"),
+    newProjectDialog: document.getElementById("newProjectDialog"),
+    cancelProjectDialog: document.getElementById("cancel-project"),
+    confirmProjectDialog: document.getElementById("confirm-project"),
+    projectTitleInput: document.getElementById("projectTitle"),
+    projectDialogForm: document.getElementById("projectForm")
 }
 
 export  const renderProjectItems = function(project, id){
@@ -223,4 +228,9 @@ domItems.projectButton.addEventListener("click", () => {
 domItems.cancelToDoDialog.addEventListener("click", () => {
     domItems.newToDoDialog.close();
     domItems.dialogForm.reset();
+});
+
+domItems.cancelProjectDialog.addEventListener("click", () => {
+    domItems.newProjectDialog.close();
+    domItems.projectDialogForm.reset();
 });
