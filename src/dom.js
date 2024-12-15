@@ -9,8 +9,8 @@ export  let domItems = {
     projectButton: document.getElementById("project-btn"),
     toDoDiv: document.getElementById("to-do-list"),
     newToDoDialog: document.getElementById("newToDoDialog"),
-    cancelDialog: document.getElementById("cancel"),
-    confirmDialog: document.getElementById("confirm"),
+    cancelToDoDialog: document.getElementById("cancel-todo"),
+    confirmToDoDialog: document.getElementById("confirm-todo"),
     dialogForm: document.getElementById("toDoForm"),
     titleInput: document.getElementById("toDoTitle"),
     descriptionInput: document.getElementById("toDoDescription"),
@@ -181,7 +181,7 @@ export const renderProjectList = function(projectList) {
         addBttn.classList.add("add-btn");
         addBttn.addEventListener('click', () => {
             domItems.newToDoDialog.showModal();          
-            domItems.confirmDialog.addEventListener("click", () => {
+            domItems.confirmToDoDialog.addEventListener("click", () => {
                 if (domItems.titleInput.value == "" || domItems.dueDateInput.value == ""){
                     // do nothing
                 } else {
@@ -220,7 +220,7 @@ domItems.projectButton.addEventListener("click", () => {
     renderProjectList(projectList);
 });
 
-domItems.cancelDialog.addEventListener("click", () => {
+domItems.cancelToDoDialog.addEventListener("click", () => {
     domItems.newToDoDialog.close();
     domItems.dialogForm.reset();
 });

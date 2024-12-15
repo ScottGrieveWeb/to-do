@@ -24,13 +24,25 @@
                     <option>2</option>
                     <option>3</option>
                 </select>
-                <input id="confirm" type="submit" value="Confirm"></button>
+                <input id="confirm-todo" type="submit" value="Confirm"></button>
             </form>
             <footer>
-                <button class="secondary" id="cancel">Cancel</button>
+                <button class="secondary" id="cancel-todo">Cancel</button>
             </footer>
         </article>
-        
+    </dialog>
+
+    <dialog id="newProjectDialog" open>
+        <article>
+            <h2>Enter a Name for Your New Project:</h2>
+            <form id="projectForm" method="dialog">
+                <input type="text" id="projectTitle" name="projectTitle" required>
+                <input id="confirm-project" type="submit" value="Confirm"></button>
+            </form>
+            <footer>
+                <button class="secondary" id="cancel-project">Cancel</button>
+            </footer>
+        </article>
     </dialog>
 </body>
 </html>
