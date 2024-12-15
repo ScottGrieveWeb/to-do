@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do</title>
+<script defer src="main.js"></script></head>
+<body>
+    <div id="to-do-list"></div>
+    <button id="project-btn">New Project</button>
+    <dialog id="newToDoDialog">
+        <article>
+            <h2>Enter Your New To Do:</h2>
+            <form id="toDoForm" method="dialog">
+                <label for="toDoTitle">Title:</label>
+                <input type="text" id="toDoTitle" name="toDoTitle" required>
+                <label for="toDoDescription">Details:</label>
+                <textarea id="toDoDescription" name="toDoDescription" rows="3"></textarea>
+                <label for="toDoDate">Due Date:</label>
+                <input type="date" id="toDoDate" name="toDoDate" aria-label="Date" required>
+                <label for="toDoPriority">Priority:</label>
+                <select id="toDoPriority" name="toDoPriority">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+                <input id="confirm-todo" type="submit" value="Confirm"></button>
+            </form>
+            <footer>
+                <button class="secondary" id="cancel-todo">Cancel</button>
+            </footer>
+        </article>
+    </dialog>
+
+    <dialog id="newProjectDialog">
+        <article>
+            <h2>Enter a Name for Your New Project:</h2>
+            <form id="projectForm" method="dialog">
+                <input type="text" id="projectTitle" name="projectTitle" maxlength="50" required>
+                <input id="confirm-project" type="submit" value="Confirm"></button>
+            </form>
+            <footer>
+                <button class="secondary" id="cancel-project">Cancel</button>
+            </footer>
+        </article>
+    </dialog>
+</body>
+</html>
