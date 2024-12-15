@@ -191,6 +191,7 @@ export const renderProjectList = function(projectList) {
                     removeElementsByClass("project-list");
                     renderProjectList(projectList);
 
+                    domItems.newToDoDialog.close();
                     domItems.dialogForm.reset();
                 }
             }, { once: true});
