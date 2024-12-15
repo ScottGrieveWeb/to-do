@@ -9,7 +9,13 @@ export  let domItems = {
     projectButton: document.getElementById("project-btn"),
     toDoDiv: document.getElementById("to-do-list"),
     newToDoDialog: document.getElementById("newToDoDialog"),
-    cancelDialog: document.getElementById("cancel")
+    cancelDialog: document.getElementById("cancel"),
+    confirmDialog: document.getElementById("confirm"),
+    dialogForm: document.getElementById("toDoForm"),
+    titleInput: document.getElementById("toDoTitle"),
+    descriptionInput: document.getElementById("toDoDescription"),
+    dueDateInput: document.getElementById("toDoDate"),
+    priorityInput: document.getElementById("toDoPriority")
 }
 
 export  const renderProjectItems = function(project, id){
@@ -174,16 +180,17 @@ export const renderProjectList = function(projectList) {
         addBttn.appendChild(addBttnText);
         addBttn.classList.add("add-btn");
         addBttn.addEventListener('click', () => {
-            // let userInput = newToDo();
-            domItems.newToDoDialog.open = true;
-            // let newToDoItem = new ToDoItem(userInput.title, userInput.description, userInput.dueDate, userInput.priority);
-            
-            // projectList[i].items.push(newToDoItem);
-            
-            // removeElementsByClass("project-list");
-            // renderProjectList(projectList);
-         });
+            domItems.newToDoDialog.showModal();          
+            domItems.confirmDialog.addEventListener("click", () => {
+                let newToDoItem = new ToDoItem(domItems.titleInput.value, domItems.descriptionInput.value, domItems.dueDateInput.value, domItems.priorityInput.value);
+                projectList[i].items.push(newToDoItem);
 
+                removeElementsByClass("project-list");
+                renderProjectList(projectList);
+
+                domItems.dialogForm.reset();
+            }, { once: true});
+         });
          projectAccordion.appendChild(addBttn);
     }
 }
@@ -210,4 +217,5 @@ domItems.projectButton.addEventListener("click", () => {
 
 domItems.cancelDialog.addEventListener("click", () => {
     domItems.newToDoDialog.open = false;
+    domItems.dialogForm.reset();
 });

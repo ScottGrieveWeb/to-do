@@ -13,21 +13,21 @@
             <h2>Enter Your New To Do:</h2>
             <form id="toDoForm" method="dialog">
                 <label for="toDoTitle">Title:</label>
-                <input type="text" id="toDoTitle" name="toDoTitle" required>
+                <input type="text" id="toDoTitle" name="toDoTitle">
                 <label for="toDoDescription">Details:</label>
                 <textarea id="toDoDescription" name="toDoDescription" rows="3"></textarea>
                 <label for="toDoDate">Due Date:</label>
-                <input type="date" id="toDoDate" name="toDoDate" aria-label="Date" required>
+                <input type="date" id="toDoDate" name="toDoDate" aria-label="Date">
                 <label for="toDoPriority">Priority:</label>
-                <select id="toDoPriority" name="toDoPriority" required>
+                <select id="toDoPriority" name="toDoPriority">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
                 </select>
+                <input id="confirm" type="submit" value="Confirm"></button>
             </form>
             <footer>
                 <button class="secondary" id="cancel">Cancel</button>
-                <button id="confirm">Confirm</button>
             </footer>
         </article>
         
