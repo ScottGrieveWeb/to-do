@@ -1,7 +1,9 @@
 import { removeElementsByClass } from "./remove-element";
-import { projectList } from "./index";
+// import { projectList } from "./index";
 import { ProjectItem } from "./project-item";
 import { ToDoItem } from "./to-do-item";
+
+let projectList = [];
 
 export  let domItems = {
     toDoButton: document.getElementById("to-do-btn"),
@@ -163,6 +165,7 @@ export  const renderProjectCompletedItems = function(project, id){
 }
 
 export const renderProjectList = function(projectList) {
+    localStorage.setItem("projects", JSON.stringify(projectList));
     for (let i = 0; i < projectList.length; i++){
         let projectAccordion = document.createElement("details");
         projectAccordion.classList.add("project-list");
@@ -204,8 +207,6 @@ export const renderProjectList = function(projectList) {
     }
 }
 
-
-
 function removeToDo(index, project){
     project.items.splice(index, 1);
 
@@ -223,11 +224,13 @@ domItems.confirmProjectDialog.addEventListener("click", () => {
         //do nothing
     } else {
         let newProject = new ProjectItem(domItems.projectTitleInput.value);
-
         projectList.push(newProject);
 
         removeElementsByClass("project-list");
         renderProjectList(projectList);
+
+        domItems.newProjectDialog.close();
+        domItems.projectDialogForm.reset();
     }
 });
 
@@ -240,3 +243,13 @@ domItems.cancelProjectDialog.addEventListener("click", () => {
     domItems.newProjectDialog.close();
     domItems.projectDialogForm.reset();
 });
+
+window.onload = () => {
+    if (localStorage.getItem("projects") === null){
+        localStorage.setItem("projects", JSON.stringify(projectList));
+    } else {
+        projectList = JSON.parse(localStorage.getItem("projects"));
+    }
+    renderProjectList(projectList);
+    
+};
