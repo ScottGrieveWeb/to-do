@@ -165,6 +165,9 @@ export  const renderProjectCompletedItems = function(project, id){
 }
 
 export const renderProjectList = function(projectList) {
+    //updates "projects" in localStorage to new version of projectList
+    //each change to any part of the projectList (i.e new proj, new todo, completing a todo, etc) calls
+    //the renderProjectList function to update the DOM, which also ensures localStorage is kept updated
     localStorage.setItem("projects", JSON.stringify(projectList));
     for (let i = 0; i < projectList.length; i++){
         let projectAccordion = document.createElement("details");
@@ -246,10 +249,11 @@ domItems.cancelProjectDialog.addEventListener("click", () => {
 
 window.onload = () => {
     if (localStorage.getItem("projects") === null){
+        //if there's nothing in storage, this sets up a new item and assigns the projectList array
         localStorage.setItem("projects", JSON.stringify(projectList));
     } else {
+        //if there's something in storage, this sets the projectList array to the array in storage
         projectList = JSON.parse(localStorage.getItem("projects"));
     }
     renderProjectList(projectList);
-    
 };
