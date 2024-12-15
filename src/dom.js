@@ -7,7 +7,9 @@ import { ToDoItem } from "./to-do-item";
 export  let domItems = {
     toDoButton: document.getElementById("to-do-btn"),
     projectButton: document.getElementById("project-btn"),
-    toDoDiv: document.getElementById("to-do-list")
+    toDoDiv: document.getElementById("to-do-list"),
+    newToDoDialog: document.getElementById("newToDoDialog"),
+    cancelDialog: document.getElementById("cancel")
 }
 
 export  const renderProjectItems = function(project, id){
@@ -172,13 +174,14 @@ export const renderProjectList = function(projectList) {
         addBttn.appendChild(addBttnText);
         addBttn.classList.add("add-btn");
         addBttn.addEventListener('click', () => {
-            let userInput = newToDo();
-            let newToDoItem = new ToDoItem(userInput.title, userInput.description, userInput.dueDate, userInput.priority);
+            // let userInput = newToDo();
+            domItems.newToDoDialog.open = true;
+            // let newToDoItem = new ToDoItem(userInput.title, userInput.description, userInput.dueDate, userInput.priority);
             
-            projectList[i].items.push(newToDoItem);
+            // projectList[i].items.push(newToDoItem);
             
-            removeElementsByClass("project-list");
-            renderProjectList(projectList);
+            // removeElementsByClass("project-list");
+            // renderProjectList(projectList);
          });
 
          projectAccordion.appendChild(addBttn);
@@ -203,4 +206,8 @@ domItems.projectButton.addEventListener("click", () => {
 
     removeElementsByClass("project-list");
     renderProjectList(projectList);
+});
+
+domItems.cancelDialog.addEventListener("click", () => {
+    domItems.newToDoDialog.open = false;
 });
