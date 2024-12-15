@@ -216,6 +216,6 @@ domItems.projectButton.addEventListener("click", () => {
 });
 
 domItems.cancelDialog.addEventListener("click", () => {
-    domItems.newToDoDialog.open = false;
+    domItems.newToDoDialog.close();
     domItems.dialogForm.reset();
 });
