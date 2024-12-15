@@ -1,9 +1,6 @@
 # to-do
 
 ## Roadmap
-
-- Separate out completed to do items
-- Re-format new to do function to utilise modals
 - Add a delete project button with an 'are you sure' pop-up
 - UI and dark theme
 - Mobile responsiveness

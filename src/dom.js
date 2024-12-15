@@ -216,13 +216,26 @@ function removeToDo(index, project){
 
 
 domItems.projectButton.addEventListener("click", () => {
-    let userInput = prompt("What is the name of your new project?");
-    let newProject = new ProjectItem(userInput);
+    // let userInput = prompt("What is the name of your new project?");
+    // let newProject = new ProjectItem(userInput);
 
-    projectList.push(newProject);
+    
+    domItems.newProjectDialog.showModal();
 
-    removeElementsByClass("project-list");
-    renderProjectList(projectList);
+   
+});
+
+domItems.confirmProjectDialog.addEventListener("click", () => {
+    if (domItems.projectTitleInput.value == ""){
+        //do nothing
+    } else {
+        let newProject = new ProjectItem(domItems.projectTitleInput.value);
+
+        projectList.push(newProject);
+
+        removeElementsByClass("project-list");
+        renderProjectList(projectList);
+    }
 });
 
 domItems.cancelToDoDialog.addEventListener("click", () => {
