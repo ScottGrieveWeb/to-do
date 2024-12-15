@@ -1,7 +1,6 @@
 import { removeElementsByClass } from "./remove-element";
 import { projectList } from "./index";
 import { ProjectItem } from "./project-item";
-import { newToDo } from "./create-to-do";
 import { ToDoItem } from "./to-do-item";
 
 export  let domItems = {
@@ -215,14 +214,8 @@ function removeToDo(index, project){
 }
 
 
-domItems.projectButton.addEventListener("click", () => {
-    // let userInput = prompt("What is the name of your new project?");
-    // let newProject = new ProjectItem(userInput);
-
-    
+domItems.projectButton.addEventListener("click", () => {    
     domItems.newProjectDialog.showModal();
-
-   
 });
 
 domItems.confirmProjectDialog.addEventListener("click", () => {
