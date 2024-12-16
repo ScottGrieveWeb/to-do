@@ -1,5 +1,10 @@
 body {
     margin: 40px;
+    width: 80vw;
+}
+header {
+    display: flex;
+    justify-content: space-between;
 }
 .project-list {
     width: 300px;
