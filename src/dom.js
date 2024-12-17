@@ -189,6 +189,8 @@ export const renderProjectList = function(projectList) {
         const addBttnText = document.createTextNode("+");
         addBttn.appendChild(addBttnText);
         addBttn.classList.add("add-btn");
+        addBttn.setAttribute("data-tooltip", "Add new To Do");
+        addBttn.setAttribute("data-placement", "right");
         addBttn.addEventListener('click', () => {
             domItems.newToDoDialog.showModal();          
             domItems.confirmToDoDialog.addEventListener("click", () => {
