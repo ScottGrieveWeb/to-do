@@ -3,8 +3,6 @@ html, body {
   }
 body {
     position: relative;
-    /* margin-top: 20px;
-    margin-left: 20px; */
 }
 header {
     display: flex;
@@ -29,6 +27,7 @@ header {
     border: 2px solid black;
     border-radius: 5px;
     padding: 20px;
+    display: flex;
 }
 
 .to-do-item {
