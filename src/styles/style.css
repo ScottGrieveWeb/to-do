@@ -73,3 +73,23 @@ header {
 #counter {
     color: gray;
 }
+
+#project-btn-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 200px;
+}
+
+#deleteProjectCheck > article {
+    max-width: 300px;
+}
+
+#delete-project-btn-div {
+    display: flex;
+    justify-content: space-between;
+}

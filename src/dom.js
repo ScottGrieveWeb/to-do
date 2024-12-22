@@ -211,6 +211,8 @@ export const renderProjectList = function (projectList) {
     renderProjectItems(projectList[i], `project${i}`);
     renderProjectCompletedItems(projectList[i], `project${i}`);
 
+    const btnDiv = document.createElement("div");
+
     const addBttn = document.createElement("button");
     const addBttnText = document.createTextNode("+");
     addBttn.appendChild(addBttnText);
@@ -246,7 +248,8 @@ export const renderProjectList = function (projectList) {
         { once: true }
       );
     });
-    projectAccordion.appendChild(addBttn);
+    btnDiv.appendChild(addBttn);
+    btnDiv.setAttribute("id", "project-btn-wrapper")
 
     const deleteBttn = document.createElement("button");
     const deleteBttnText = document.createTextNode("x");
@@ -260,14 +263,15 @@ export const renderProjectList = function (projectList) {
         () => {
           projectList.splice([i], 1);
           domItems.projectDeleteDialog.close();
-          
+
           removeElementsByClass("project-list");
           renderProjectList(projectList);
         },
         { once: true }
       );
     });
-    projectAccordion.appendChild(deleteBttn);
+    btnDiv.appendChild(deleteBttn)
+    projectAccordion.appendChild(btnDiv);
   }
 };
 
