@@ -21,6 +21,7 @@ export let domItems = {
   cancelProjectDialog: document.getElementById("cancel-project"),
   confirmProjectDialog: document.getElementById("confirm-project"),
   projectTitleInput: document.getElementById("projectTitle"),
+  projectTitleCounter: document.getElementById("counter"),
   projectDialogForm: document.getElementById("projectForm"),
 };
 
@@ -274,6 +275,11 @@ domItems.confirmProjectDialog.addEventListener("click", () => {
     domItems.projectDialogForm.reset();
   }
 });
+
+// max character counter for project title input
+domItems.projectTitleInput.onkeyup = () => {
+  domItems.projectTitleCounter.innerText = `${domItems.projectTitleInput.value.length}/50`;
+}
 
 domItems.cancelToDoDialog.addEventListener("click", () => {
   domItems.newToDoDialog.close();
