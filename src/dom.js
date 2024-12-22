@@ -23,6 +23,8 @@ export let domItems = {
   projectTitleInput: document.getElementById("projectTitle"),
   projectTitleCounter: document.getElementById("counter"),
   projectDialogForm: document.getElementById("projectForm"),
+  projectDeleteDialog: document.getElementById("deleteProjectCheck"),
+  cancelProjectButton: document.getElementById("no-btn")
 };
 
 export const renderProjectItems = function (project, id) {
@@ -291,6 +293,10 @@ domItems.cancelProjectDialog.addEventListener("click", () => {
   domItems.projectDialogForm.reset();
 });
 
+domItems.cancelProjectButton.addEventListener("click", () => {
+  domItems.projectDeleteDialog.close();
+})
+
 window.onload = () => {
   if (localStorage.getItem("projects") === null) {
     //if there's nothing in storage, this sets up a new item and assigns the projectList array
@@ -301,3 +307,4 @@ window.onload = () => {
   }
   renderProjectList(projectList);
 };
+
