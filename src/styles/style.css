@@ -57,3 +57,19 @@ header {
 .completed-todo-title {
     text-decoration: line-through;
 }
+
+#newProjectDialog > article {
+    max-width: 370px;
+}
+
+#projectForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+#projectTitle {
+    margin-bottom: 3px;
+}
+#counter {
+    color: gray;
+}
