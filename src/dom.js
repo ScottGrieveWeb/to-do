@@ -24,7 +24,8 @@ export let domItems = {
   projectTitleCounter: document.getElementById("counter"),
   projectDialogForm: document.getElementById("projectForm"),
   projectDeleteDialog: document.getElementById("deleteProjectCheck"),
-  cancelProjectButton: document.getElementById("no-btn")
+  cancelProjectButton: document.getElementById("no-btn"),
+  deleteProjectButton: document.getElementById("yes-btn")
 };
 
 export const renderProjectItems = function (project, id) {
@@ -246,6 +247,27 @@ export const renderProjectList = function (projectList) {
       );
     });
     projectAccordion.appendChild(addBttn);
+
+    const deleteBttn = document.createElement("button");
+    const deleteBttnText = document.createTextNode("x");
+    deleteBttn.appendChild(deleteBttnText);
+    deleteBttn.classList.add("delete-btn");
+    deleteBttn.classList.add("secondary");
+    deleteBttn.addEventListener("click", () => {
+      domItems.projectDeleteDialog.showModal();
+      domItems.deleteProjectButton.addEventListener(
+        "click",
+        () => {
+          projectList.splice([i], 1);
+          domItems.projectDeleteDialog.close();
+          
+          removeElementsByClass("project-list");
+          renderProjectList(projectList);
+        },
+        { once: true }
+      );
+    });
+    projectAccordion.appendChild(deleteBttn);
   }
 };
 
