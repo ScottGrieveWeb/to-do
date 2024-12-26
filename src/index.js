@@ -4,6 +4,7 @@ import { removeElementsByClass } from "./remove-element";
 import { ProjectItem } from "./project-item";
 import { ToDoItem } from "./to-do-item";
 import { domItems } from "./dom";
+import { removeToDo } from "../remove-to-do";
 
 let projectList = [];
 
@@ -69,7 +70,7 @@ export const renderProjectItems = function (project, id) {
     deleteBttn.appendChild(deleteTxt);
     deleteBttn.classList.add("delete");
     deleteBttn.addEventListener("click", () => {
-      removeToDo(toDoAccordion.dataset.index, project, "incomplete");
+      removeToDo(toDoAccordion.dataset.index, project, "incomplete", projectList);
     });
 
     toDoAccordion.appendChild(summary);
@@ -152,7 +153,7 @@ export const renderProjectCompletedItems = function (project, id) {
     deleteBttn.appendChild(deleteTxt);
     deleteBttn.classList.add("delete");
     deleteBttn.addEventListener("click", () => {
-      removeToDo(toDoAccordion.dataset.index, project, "complete");
+      removeToDo(toDoAccordion.dataset.index, project, "complete", projectList);
     });
 
     toDoAccordion.appendChild(summary);
@@ -254,15 +255,7 @@ export const renderProjectList = function (projectList) {
   }
 };
 
-function removeToDo(index, project, type) {
-  if ( type === "incomplete"){
-    project.items.splice(index, 1);
-  } else if ( type === "complete") {
-    project.completed.splice(index, 1);
-  }
-  removeElementsByClass("project-list");
-  renderProjectList(projectList);
-}
+
 
 domItems.projectButton.addEventListener("click", () => {
   domItems.newProjectDialog.showModal();
